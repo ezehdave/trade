@@ -28,6 +28,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+
+CSRF_TRUSTED_ORIGINS = [' https://trade-production.up.railway/']
+
+CORS_REPLACE_HTTPS_REFERER = True
+
+CSRF_COOKIE_DOMAIN = '*'
+
+CORS_ORIGIN_WHITELIST = (
+    ' https://trade-production.up.railway',
+    'front.bluemix.net',
+    'bluemix.net',
+)
+
 
 # Application definition
 
@@ -38,11 +57,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'investment.apps.InvestmentConfig'
+    'investment.apps.InvestmentConfig',
+     'corsheaders',
+
 
 ]
 
 MIDDLEWARE = [
+    '**corsheaders.middleware.CorsMiddleware**',
+
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
