@@ -1,0 +1,125 @@
+
+{% extends "main.html"%}
+{% load static %}
+
+{% block content %}
+
+<body>
+  <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+     {% if user.is_authenticated %}
+    <div> <a href="{% url 'logout'%}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > logout</i> </a> </div>
+      {%else%}
+    <div> <a href="{% url 'login_register' %}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i> </a>
+      {% endif %}
+    </div>
+
+  </div>
+  <div class="wrapper">
+    <div>
+
+<div class="" >
+  <img class="mySlides" src="{% static 'images/slide1.jpg'  %}"  style="width:100%">
+  <img class="mySlides" src="{% static 'images/slide2.jpg'  %}"  style="width:100%">
+  <img class="mySlides" src="{% static 'images/slide3.jpg'  %}"  style="width:100%">
+</div>
+
+
+
+{% for plans in investment_plan %}
+
+<div class="card">
+  <div class="container">
+    <h2>Balance</h2>
+    <h4><b>$ {{ plans.balance}}</b></h4>
+  </div>
+  <div class="container">
+    <h2>Earning</h2>
+    <h4><b>$ {{ plans.interest }}</b></h4>
+
+
+  </div>
+</div>
+        {% endfor %}
+<div class="card">
+  <div class="container" style="background-color: #04AA6D;">
+   <a     href="{% url 'deposite'%}" ><p>Deposite</p></a>
+
+
+  </div>
+  <div class="container" style="background-color: red">
+    <a href="{% url 'withdraw'%}"><p>Withdraw</p></a>
+
+
+  </div>
+</div>
+<div style="height:256px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid
+            #282E3B; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal;
+            text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38; padding: 0px; margin: 0px; width: 100%;"><div style="height:236px;
+            padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=3&pref_coin_id=1505&graph=yes"
+            width="100%" height="232px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div
+            style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"></div>
+</div>
+
+
+<a  href="{% url 'about' %}">
+  <div class=" card about">
+    <div class="container">
+      <p>FK Binary</p>
+      <img src="{% static 'images/logo.jpg' %}" style="width:90px;">
+
+    </div>
+    <div class="container">
+
+
+
+      <p >
+        <div> About FK Binary</div>
+        <p style="text-align: start;"></p>
+        my text ever since the 1500s, when an unknown printer took a
+        galley of type and scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popula
+      </p>
+
+    </div>
+  </div>
+</a>
+
+
+    </div>
+
+  </div>
+  <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+  </a>
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000); // Change image every 2 seconds
+}
+</script>
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block active "></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block  ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block"></i> User </a></div>
+
+
+
+</div>
+
+
+</body>
+{% endblock content %}

@@ -1,0 +1,155 @@
+
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+<body>
+  <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+    <div> <a href="{% url 'login_register' %}" ><i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i></a>
+    </div>
+
+  </div>
+
+
+  <div class="w3-card-4 w3-dark-grey" style="margin-top: 40px;">
+
+    <div class="w3-container w3-center">
+      <div class="card">
+        <div class="container">
+          <h2>Balance</h2>
+          <h4><b>$ 200.00</b></h4>
+        </div>
+        <div class="container">
+          <h2>Earning</h2>
+          <h4><b>$ 500.00</b></h4>
+
+
+        </div>
+      </div>
+      <div style="text-align:center ;">My wallet Address</div>
+      <div class="carder" style="padding: 10px 0px;">
+        <div>
+           <div  style="padding-bottom: 10px; text-align: start; "> Bitcion Wallet <i class="fa fa-bitcoin" style="color: gold;"></i></div>
+           <input  type="text" value="BITCOINdyfududyfdyudwdvdvdwydwfdwdywd" id="myInputone" readonly
+           style="background-color: rgba(40,46,73,255) ; color: aliceblue; padding: 10px 10px;">
+           <button style="padding:10px 10px ;" onclick="myFunctionone()"><i class="fa fa-copy" > copy</i>
+           </button>
+        </div>
+
+
+      </div>
+      <div class="carder" style="padding: 10px 0px;">
+        <div>
+          <div  style="padding-bottom: 10px; text-align: start; "> USDT Wallet <iconify-icon icon="cryptocurrency:usdt" style=" color: green;"></iconify-icon></div>
+
+
+          <input  type="text" value="USDTdyfududyfdyudwdvdvdwydwfdwdywd" id="myInputtwo" readonly
+           style="background-color: rgba(40,46,73,255) ; color: aliceblue; padding: 10px 10px;">
+           <button style="padding:10px 10px ;" onclick="myFunctiontwo()"><i class="fa fa-copy" > copy</i>
+           </button>
+        </div>
+
+
+      </div>
+
+      <div class="carder" style="padding: 10px 0px;">
+        <div>
+           <div style="padding-bottom: 10px; text-align: start; ">BINACE(BP20) wallet  <iconify-icon icon="simple-icons:binance" style="color: goldenrod;"></iconify-icon></div>
+           <input  type="text" value="BINACEdyfududyfdyudwdvdvdwydwfdwdywd" id="myInputthree" readonly
+           style="background-color: rgba(40,46,73,255) ; color: aliceblue; padding: 10px 10px;">
+           <button style="padding:10px 10px ;" onclick="myFunctionthree()"><i class="fa fa-copy" > copy</i>
+           </button>
+        </div>
+
+
+      </div>
+      <div class="carder" style="padding: 10px 0px;">
+        <div>
+           <div style="padding-bottom: 10px; text-align: start; ">DOGE wallet <iconify-icon icon="simple-icons:dogecoin" style=" color: goldenrod;"></iconify-icon> </div>
+           <input  type="text" value="DOGEdyfududyfdyudwdvdvdwydwfdwdywd" id="myInputfour" readonly
+           style="background-color: rgba(40,46,73,255) ; color: aliceblue; padding: 10px 10px;">
+           <button style="padding:10px 10px ;" onclick="myFunctionfour()"><i class="fa fa-copy" > copy</i>
+           </button>
+        </div>
+
+
+      </div>
+
+
+
+
+
+    </div>
+    <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+    </a>
+</div>
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block active"></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block"></i> User </a></div>
+
+
+
+</div>
+<script>
+    function myFunctionone() {
+      // Get the text field
+      var copyText = document.getElementById("myInputone");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctiontwo() {
+      // Get the text field
+      var copyText = document.getElementById("myInputtwo");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctionthree() {
+      // Get the text field
+      var copyText = document.getElementById("myInputthree");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctionfour() {
+      // Get the text field
+      var copyText = document.getElementById("myInputfour");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+
+    </script>
+
+</body>
+{% endblock content %}

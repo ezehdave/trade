@@ -1,0 +1,107 @@
+
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+<body>
+   <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+     {% if user.is_authenticated %}
+    <div> <a href="{% url 'logout'%}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > logout</i> </a> </div>
+      {%else%}
+    <div> <a href="{% url 'login_register' %}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i> </a>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="w3-card-4 w3-dark-grey" style="margin-top: 40px;">
+
+    <div class="w3-container w3-center">
+     {% for plans in investment_plans %}
+
+<div class="card">
+  <div class="container">
+    <h2>Balance</h2>
+    <h4><b>$ {{ plans.balance}}</b></h4>
+  </div>
+  <div class="container">
+    <h2>Earning</h2>
+    <h4><b>$ {{ plans.interest }}</b></h4>
+
+
+  </div>
+</div>
+        {% endfor %}
+      <div style="text-align:center ;">Purchase Machine</div>
+      <div class="main-body" style="margin-top:10px;s ">
+        <div>
+            <form class="reg-form" id="form">
+                <div class="carder" style="padding: 10px 0px;">
+                    <div>
+                       Make sure you have Deposited and have the required balance
+                    </div>
+
+
+                  </div>
+                <div class="center-div" >
+                      <div class="main" style="margin:20px 0px; ">
+
+
+                <div class="email-container">
+                  <input id="price" value="{{price}}" class="email" type="text" required  readonly/>
+                </div>
+
+
+                <div class="button-container">
+                  <input id="form-btn" id="purchase" class="button" type="submit" value="Purchase" style="background-color: red;"/>
+                </div>
+              </div>
+                </div>
+
+
+
+            </form>
+        </div>
+
+      </div>
+
+    <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+    </a>
+</div>
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block active"></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block"></i> User </a></div>
+
+
+
+</div>
+    <script type="text/javascript">
+    let user = '{{request.user}}'
+
+     function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+       }
+       return cookieValue;
+      }
+      const csrftoken = getCookie('csrftoken');
+
+</script>
+
+<script type="text/javascript" src="{% static 'js/machine.js' %}"></script>
+
+<script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+
+
+</body>
+{% endblock content %}

@@ -1,0 +1,76 @@
+
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+<body>
+  <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+     {% if user.is_authenticated %}
+    <div> <a href="{% url 'logout'%}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > logout</i> </a> </div>
+      {%else%}
+    <div> <a href="{% url 'login_register' %}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i> </a>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <h2 style="margin-top: 50px; text-align: center;">My profile</h2>
+  <div class="w3-card-4 w3-dark-grey">
+
+    <div class="w3-container w3-center">
+      <h3>Welcome {{username}}</h3>
+         <img height="200px" src="{% static 'images/img-avatar1.png'  %}"  alt="Avatar" >
+
+{% for plans in investment_plan %}
+
+<div class="card">
+  <div class="container">
+    <h2>Balance</h2>
+    <h4><b>$ {{ plans.balance}}</b></h4>
+  </div>
+  <div class="container">
+    <h2>Earning</h2>
+    <h4><b>$ {{ plans.interest }}</b></h4>
+
+
+  </div>
+</div>
+        {% endfor %}
+
+    <div class="card">
+  <div class="container" style="background-color: #04AA6D;">
+   <a     href="{% url 'deposite'%}" ><p>Deposite</p></a>
+
+
+  </div>
+  <div class="container" style="background-color: red">
+    <a href="{% url 'withdraw'%}"><p>Withdraw</p></a>
+
+
+  </div>
+</div>
+      <h3 style="text-align: center;">Transaction History</h3>
+      <div class="card">
+
+      <div><b>+$0</b> deposited</div>
+      <div><b class="negative">-$0</b> Withdrawed</div>
+      </div>
+
+    </div>
+
+    </div>
+    <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+    </a>
+
+
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block "></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block active"></i> User </a></div>
+
+
+
+</div>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,90 @@
+
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+<body>
+   <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+    <div> <a href="{% url 'login_register' %}" ><i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i></a>
+    </div>
+
+  </div>
+
+  <div class="w3-card-4 w3-dark-grey" style="margin-top: 40px;">
+
+    <div class="w3-container w3-center">
+      <div class="card">
+        <div class="container">
+          <h2>Balance</h2>
+          <h4><b>$ 200.00</b></h4>
+        </div>
+        <div class="container">
+          <h2>Earning</h2>
+          <h4><b>$ 500.00</b></h4>
+
+
+        </div>
+      </div>
+      <div style="text-align:center ;">Your Withdrawer Details</div>
+      <div class="main-body" style="margin-top:10px;s ">
+        <div>
+            <form class="reg-form">
+                <div class="carder" style="padding: 10px 0px;">
+                    <div>
+                        Caution Failure to insert your specific wallet address may result to lost of founds
+                    </div>
+
+
+                  </div>
+              <div class="main" style="margin:20px 0px; ">
+                <div style="text-align: center; margin: 10px 0px;">
+                     <label for="dog-names">Choose a withdraw  method:</label>
+                    <select name="wallet-Address" >
+                     <option value="Bitcion">Select</option>
+                     <option value="Bitcion">Bitcion</option>
+                    <option value="USDT">USDT</option>
+                    <option value="BINACE(BP20)">BINACE(BP20)</option>
+                    <option value="Dodgcoin">Dodgcoin</option>
+                    </select>
+                </div>
+
+                <div class="email-container">
+                  <input placeholder="wallet Address" class="email" type="text" required />
+                </div>
+                <div class="password-container">
+                  <input placeholder="$Amount" class="password" type="text" required />
+                </div>
+
+                <div class="button-container">
+                  <input class="button" type="submit" value="withdraw" style="background-color: red;"/>
+                </div>
+              </div>
+              <div class="carder" style="padding: 10px 0px;">
+                <div>
+                    Notice !!! you will depited 15% for minner fees
+                </div>
+
+
+              </div>
+
+
+            </form>
+        </div>
+
+      </div>
+
+    <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+    </a>
+</div>
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block active"></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block"></i> User </a></div>
+
+
+
+</div>
+
+
+</body>
+{% endblock content %}

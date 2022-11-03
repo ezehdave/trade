@@ -1,0 +1,188 @@
+
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+<body>
+  <div class="nav">
+    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+     {% if user.is_authenticated %}
+    <div> <a href="{% url 'logout'%}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > logout</i> </a> </div>
+      {%else%}
+    <div> <a href="{% url 'login_register' %}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > login</i> </a>
+      {% endif %}
+    </div>
+
+  </div>
+  <div class="wrapper">
+    <div>
+
+<div class="" >
+
+  <img class="mySlides" src="{% static 'images/slider1.jpg'  %}" style="width:100%">
+  <img class="mySlides" src="{% static 'images/slider2.jpg'  %}"  style="width:100%">
+  <img class="mySlides" src="{% static 'images/slider3.jpg'  %}"  style="width:100%">
+</div>
+{% for plans in investment_plan %}
+
+<div class="card">
+  <div class="container">
+    <h2>Balance</h2>
+    <h4><b>$ {{ plans.balance}}</b></h4>
+  </div>
+  <div class="container">
+    <h2>Earning</h2>
+    <h4><b>$ {{ plans.interest }}</b></h4>
+
+
+  </div>
+</div>
+        {% endfor %}
+
+<div class="card">
+  <div class="container" style="background-color: #04AA6D;">
+   <a     href="{% url 'deposite'%}" ><p>Deposite</p></a>
+
+
+  </div>
+  <div class="container" style="background-color: red">
+    <a href="{% url 'withdraw'%}"><p>Withdraw</p></a>
+
+
+  </div>
+</div>
+
+<div>Investment plan <i class="fa fa-bitcoin"></i></div>
+
+<div class="card">
+    <a href="{% url 'machine' 100 %}">
+    <div class="container" style="border-right: 5px #1a2134 solid; ">
+        <div style="height:200px ;" ><img class="machine" src="{% static 'images/machine.png'  %}" style="width:100% "></div>
+        <div>Basic miner H-power1</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$100.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$250.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+    </a>
+    <a href="{% url 'machine' 200 %}">
+    <div class="container" style="border-right: 5px #1a2134 solid; ">
+        <div style="height:200px ;"><img class="machine" src="{% static 'images/machine2.png'  %}" style="width:100%"></div>
+        <div>Basic miner H-power2</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$200.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$600.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+     </div>
+        </a>
+
+  <div class="card">
+             <a href="{% url 'machine' 400 %}">
+                <div class="container" style="border-right: 5px #1a2134 solid; ">
+        <div style="height:200px ;"><img class="machine" src="{% static 'images/machine3.png'  %}" style="width:100%"></div>
+        <div>Basic miner H-power3</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$400.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$1000.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+        </a>
+      <a href="{% url 'machine' 550 %}">
+    <div class="container" style="border-right: 5px #1a2134 solid; ">
+        <div style="height:200px ;"><img class="machine"  src="{% static 'images/machine4.png'  %}"  style="width:100%"></div>
+        <div>Basic miner H-power4</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$550.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$2000.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+  </div>
+        </a>
+  <div class="card">
+      <a href="{% url 'machine' 1000 %}">
+    <div class="container" style="border-right: 5px #1a2134 solid; ">
+        <div style="height:200px ;"><img class="machine"  src="{% static 'images/machine5.png'  %}"  style="width:100%"></div>
+        <div>Basic miner H-power5</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$1000.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$4500.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+      </a>
+      <a href="{% url 'machine' 2000 %}">
+    <div class="container" style="border-right: 5px #1a2134 solid; margin-bottom: 40px;">
+        <div style="height:200px ;"><img class="machine"  src="{% static 'images/machine6.png'  %}"  style="width:100%"></div>
+        <div>Basic miner H-power6</div>
+
+        <p class="mode">price</p>
+
+        <div><b>$2000.00</b></div>
+        <div class="mode">48 hours profit:</div>
+        <div><b>$7500.00</b></div>
+        <p style="background:rgb(33, 100, 33); margin-bottom: 0px; position: relative;">Purchase</p>
+
+    </div>
+  </div>
+        </a>
+
+
+
+
+    </div>
+
+  </div>
+  <a href="https://wa.link/u4k6to" style="width:100px ;">      <div class="sticky" style="width: 100px;"><i class="fa fa-whatsapp" style="font-size: 75px; color: green;"></i></div>
+  </a>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000); // Change image every 2 seconds
+}
+
+//for testimonia
+
+</script>
+
+<div class="navbar">
+   <div> <a  href="{% url 'home'%}"> <i class="fa fa-home block "></i>   Home </a></div>
+   <div>  <a  href="{% url 'investment'%}" > <i class='fa fa-shopping-cart block active ' ></i> Investment </a></div>
+   <div> <a  href="{% url 'profile'%}"> <i class="fa fa-user block"></i> User </a></div>
+
+
+
+</div>
+
+
+</body>
+{% endblock content %}
