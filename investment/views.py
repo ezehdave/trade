@@ -109,9 +109,11 @@ def updateItem(request):
     username = request.user.username
     investment_plans = Investment.objects.get(user_name__username=username)
     prices = price[0]
-    investment_plans.investment_plan = prices
-    investment_plans.save()
+    if investment_plans.balance >= prices:
+        investment_plans.balance = investment_plans.balance - prices
+        investment_plans.investment_plan = prices
 
+    investment_plans.save()
 
     return JsonResponse( investment_plans.investment_plan , safe=False)
 

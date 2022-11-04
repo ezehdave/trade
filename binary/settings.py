@@ -60,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'binary.urls'
-CSRF_TRUSTED_ORIGINS = ['https://trade-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://trade-production.up.railway.app', ]
 
 TEMPLATES = [
     {

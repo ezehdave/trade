@@ -13,18 +13,21 @@
   <div class="w3-card-4 w3-dark-grey" style="margin-top: 40px;">
 
     <div class="w3-container w3-center">
-      <div class="card">
-        <div class="container">
-          <h2>Balance</h2>
-          <h4><b>$ 200.00</b></h4>
-        </div>
-        <div class="container">
-          <h2>Earning</h2>
-          <h4><b>$ 500.00</b></h4>
+     {% for plans in investment_plan %}
+
+<div class="card">
+  <div class="container">
+    <h2>Balance</h2>
+    <h4><b>$ {{ plans.balance}}</b></h4>
+  </div>
+  <div class="container">
+    <h2>Earning</h2>
+    <h4><b>$ {{ plans.interest }}</b></h4>
 
 
-        </div>
-      </div>
+  </div>
+</div>
+        {% endfor %}
       <div style="text-align:center ;">Your Withdrawer Details</div>
       <div class="main-body" style="margin-top:10px;s ">
         <div>
