@@ -34,6 +34,7 @@
         .then((data) => {
           console.log('success:', data);
           alert('Done Checking payment');
+          window.location.href = "{% url 'profile' %}";
         })
    }
 

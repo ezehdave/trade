@@ -5,7 +5,7 @@
 {% block content %}
 <body>
   <div class="nav">
-    <div> <img src="{% static 'images/logo.png' %}"  style="height: 60px; margin-right:100px;"></div>
+    <div> <img src="{% static 'images/logo1.png' %}"  style="height: 60px; margin-right:100px;"></div>
      {% if user.is_authenticated %}
     <div> <a href="{% url 'logout'%}"> <i class='fa fa-sign-in' style="font-size: 20px; margin-top: 17px;" > logout</i> </a> </div>
       {%else%}
