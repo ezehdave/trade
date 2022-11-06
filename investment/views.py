@@ -109,13 +109,40 @@ def updateItem(request):
     username = request.user.username
     investment_plans = Investment.objects.get(user_name__username=username)
     prices = price[0]
-    if investment_plans.balance >= prices:
-        investment_plans.balance = investment_plans.balance - prices
-        investment_plans.investment_plan = prices
 
-    investment_plans.save()
+    if investment_plans.balance >= int(prices):
+        investment_plans.balance = investment_plans.balance - int(prices)
+        investment_plans.investment_plan = int(prices)
+        investment_plans.save()
+        massages = "Purchase successful "
+    else:
+        massages = "Balance is low for investment"
+    return JsonResponse({"data": investment_plans.investment_plan,"massage":massages })
 
-    return JsonResponse( investment_plans.investment_plan , safe=False)
+
+def withdrawer (request):
+    data = json.loads(request.body)
+    wallet = data['form']['wallet'],
+    wallet_address = data['form']['walletAddress'],
+    amount = data['form']['amount'],
+    username = request.user.username
+    investment_plans = Investment.objects.get(user_name__username=username)
+    wallet = wallet[0]
+    wallet_address = wallet_address[0]
+    amount = amount[0]
+    amount = int(amount)
+    if investment_plans.balance >= amount:
+        investment_plans.balance = investment_plans.balance - amount
+        investment_plans.wallet_address = wallet_address
+        investment_plans.wallet = wallet
+        investment_plans.amount = amount
+        investment_plans.save()
+
+        massages = "withdrawer is successfull  "
+    else:
+        massages = "your balance is not adequate for this transaction"
+    return JsonResponse({"data": investment_plans.investment_plan, "massage": massages, })
+
 
 
 

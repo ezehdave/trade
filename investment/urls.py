@@ -12,5 +12,6 @@ urlpatterns =[
     path('logout/', views.logoutUser, name="logout"),
     path('machine/<str:pk>/', views.machine, name="machine"),
     path('process/', views.updateItem, name="process,"),
+    path('withdrawer/', views.withdrawer, name="withdrawer,"),
 
 ]

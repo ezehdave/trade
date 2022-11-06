@@ -35,7 +35,7 @@
       <div style="text-align:center ;">Your Withdrawer Details</div>
       <div class="main-body" style="margin-top:10px;s ">
         <div>
-            <form class="reg-form">
+            <form class="reg-form" id="form">
                 <div class="carder" style="padding: 10px 0px;">
                     <div>
                         Caution Failure to insert your specific wallet address may result to lost of founds
@@ -43,10 +43,17 @@
 
 
                   </div>
+                  <div class="carder" style="padding: 10px 0px;">
+                    <div id="massage" style="color:blue">
+
+                    </div>
+
+
+                  </div>
               <div class="main" style="margin:20px 0px; ">
                 <div style="text-align: center; margin: 10px 0px;">
                      <label for="dog-names">Choose a withdraw  method:</label>
-                    <select name="wallet-Address" >
+                    <select name="wallet-Address" id="wallet" >
                      <option value="Bitcion">Select</option>
                      <option value="Bitcion">Bitcion</option>
                     <option value="USDT">USDT</option>
@@ -56,14 +63,14 @@
                 </div>
 
                 <div class="email-container">
-                  <input placeholder="wallet Address" class="email" type="text" required />
+                  <input id="walletAddress" placeholder="wallet Address" class="email" type="text" required />
                 </div>
                 <div class="password-container">
-                  <input placeholder="$Amount" class="password" type="text" required />
+                  <input id="amount" placeholder="$Amount" class="password" type="text" required />
                 </div>
 
                 <div class="button-container">
-                  <input class="button" type="submit" value="withdraw" style="background-color: red;"/>
+                  <input id="form-btn" class="button" type="submit" value="withdraw" style="background-color: red;"/>
                 </div>
               </div>
               <div class="carder" style="padding: 10px 0px;">
@@ -92,6 +99,30 @@
 
 </div>
 
+    <script type="text/javascript">
+    let user = '{{request.user}}'
 
+     function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+       }
+       return cookieValue;
+      }
+      const csrftoken = getCookie('csrftoken');
+
+</script>
+
+<script type="text/javascript" src="{% static 'js/withdraw.js' %}"></script>
+
+<script src="{% static 'js/jquery-3.6.0.js' %}"></script>
 </body>
 {% endblock content %}

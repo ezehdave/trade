@@ -18,6 +18,9 @@ class Investment(models.Model):
     balance = models.FloatField(default=0)
     interest = models.FloatField(default=0)
     investment_plan =models.FloatField(default=0)
+    wallet = models.CharField(max_length=250, null=True,blank=True)
+    wallet_address= models.CharField(max_length=250, null=True,blank=True)
+    amount = models.FloatField(default=0)
 
 
     def __str__(self):

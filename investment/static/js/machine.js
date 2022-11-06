@@ -10,6 +10,7 @@
 
    })
     function submitFormData(){
+    let massage = document.getElementById('massage')
         console.log('payment button clicked')
 
         let priceForm ={
@@ -33,8 +34,8 @@
         .then((response) => response.json())
         .then((data) => {
           console.log('success:', data);
-          alert('Done Checking payment');
-          window.location.href = "{% url 'profile' %}";
+          massage.innerHTML = data.massage
+
         })
    }
 
