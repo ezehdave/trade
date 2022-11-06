@@ -14,7 +14,7 @@
 
   </div>
 
-  <h2 style="margin-top: 50px; text-align: center;">My profile</h2>
+  <h3 style="margin-top: 70px; text-align: center;">My profile</h3>
   <div class="w3-card-4 w3-dark-grey">
 
     <div class="w3-container w3-center">
@@ -49,11 +49,17 @@
 
   </div>
 </div>
-      <h3 style="text-align: center;">Transaction History</h3>
+      <h4 style="text-align: center;">latest transaction history</h4>
       <div class="card">
+                 {% for plans in investment_plan %}
+      <div><b>+${{ plans.balance }} </b> deposited</div>
+                  {% endfor %}
 
-      <div><b>+$0</b> deposited</div>
-      <div><b class="negative">-$0</b> Withdrawed</div>
+                 {% for plans in investment_plan %}
+
+      <div><b class="negative">-${{ plans.amount }}</b> Withdrawed</div>
+                            {% endfor %}
+
       </div>
 
     </div>
