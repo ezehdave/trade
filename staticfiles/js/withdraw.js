@@ -10,30 +10,34 @@
 
    })
     function submitFormData(){
+        let massage = document.getElementById('massage')
+
         console.log('payment button clicked')
 
-        let priceForm ={
+        let withdrawerForm ={
 
-            'price':form.price.value,
+            'wallet':form.wallet.value,
+            'walletAddress':form.walletAddress.value,
+            'amount':form.amount.value,
 
         }
-        console.log(priceForm)
+        console.log(withdrawerForm)
 
 
-        let url ='/process/'
+        let url ='/withdrawer/'
         fetch(url, {
             method: "POST",
             headers:{
                  'Content-Type':'application/json',
                  'X-CSRFToken': csrftoken,
             },
-            body:JSON.stringify({'form':priceForm })
+            body:JSON.stringify({'form':withdrawerForm })
 
         })
         .then((response) => response.json())
         .then((data) => {
           console.log('success:', data);
-          alert('Done Checking payment');
+           massage.innerHTML = data.massage
         })
    }
 
