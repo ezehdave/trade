@@ -74,6 +74,7 @@ body{
   border-radius: 5px;
   background-color: rgba(40,46,73,255);
 
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
